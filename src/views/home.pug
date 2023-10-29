@@ -1,7 +1,9 @@
-extends base.pug
-
-block head
-    title #{pageTitle} | Wetube
+extends base
+include mixins/video
 
 block content
-    h1 Home!
+    div.video-grid
+        each video in videos
+            +video(video)
+        else
+            span.empty__message No videos found
